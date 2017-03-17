@@ -18,5 +18,17 @@ namespace WebApplication3.Controllers
             ViewBag.CustName=order.CustName;
             return View();
         }
-	}
+        public ActionResult InsertOrder()
+        {
+            return View();
+        }
+        [HttpPost()]
+        public ActionResult InsertOrder(Models.Order order)
+        {
+            Models.OrderService orderService = new Models.OrderService();
+            orderService.InsertOrder(order);
+            return View("Index");
+        }
+
+    }
 }
